@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>10 questions</title>
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+    <h1 class="text-center">10 Questions</h1>
+    <h2 class="text-center">See if you can answer all the questions!</h2>
+    <h2 class="text-center">answer T or F for all questions</h2>
+  </div>
+  <div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center" id="question"></h1>
+  </div>    
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var counter = 0;
+
+      var quiz=[];
+      quiz.push(["cheetahs are faster than turtles","t"]);      
+      quiz.push(["cheetahs are faster than humans","t"]);
+      quiz.push(["cheetahs are bigger than elephants","f"]);
+      quiz.push(["cheetahs are kings of the jungle","f"]);
+      quiz.push(["cheetahs are comprised of carbon","t"]);
+      quiz.push(["cheetahs are not asexual","t"]);
+      quiz.push(["cheetahs lay eggs","f"]);
+      quiz.push(["cheetahs are amphibians ","f"]);
+      quiz.push(["cheetahs speak spanish","f"]);
+      quiz.push(["cheetahs are found in Iceland ","f"]);
+
+    $("#question").html(quiz[counter][0]);
+
+
+      $(document).keyup(function(event){
+          if (counter<quiz.length){
+            if (event.key == "t" || event.key =="f"){
+                if (event.key == quiz[counter][1]){
+                  alert("correct");
+                }
+                else {
+                  alert ("wrong.");
+                }
+            } else{
+              alert("please use t or f");
+            }
+
+              counter++;
+              $("#question").html(quiz[counter][0]);         
+          } else
+            alert("end of game");
+      });
+
+  });
+
+  </script>
+</body>
+</html>
